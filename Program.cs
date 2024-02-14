@@ -22,7 +22,7 @@ namespace WebApiMeteo
 
             builder.Services.AddDbContext<Context>(options =>
             {
-                options.UseSqlServer("Data Source=(localdb)\\\\Local;Initial Catalog=MeteoDb;Integrated Security=True;Connect Timeout=30;Encrypt=False;TrustServerCertificate=False;ApplicationIntent=ReadWrite;MultiSubnetFailover=False;");
+                options.UseSqlServer(builder.Configuration.GetConnectionString("DefaultConnection"));
             });
 
             var app = builder.Build();
